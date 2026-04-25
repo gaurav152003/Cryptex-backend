@@ -1,0 +1,26 @@
+package com.gaurav.controller;
+
+import com.gaurav.service.EmailService;
+import com.gaurav.service.UserService;
+import com.gaurav.service.VerificationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class VerificationController {
+    private final VerificationService verificationService;
+    private final UserService userService;
+
+    @Autowired
+    private EmailService emailService;
+
+    @Autowired
+    public VerificationController(VerificationService verificationService, UserService userService) {
+        this.verificationService = verificationService;
+        this.userService = userService;
+    }
+
+
+
+
+}
