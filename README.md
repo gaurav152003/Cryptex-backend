@@ -1,6 +1,6 @@
 # Cryptex Backend - Cryptocurrency Trading Platform API
 
-Cryptex Backend is a secure and scalable backend application for a **Cryptocurrency Trading Platform** built with **Spring Boot**. It provides authentication, wallet management, crypto trading, wallet-to-wallet transfers, chatbot support, cryptocurrency news updates, and payment integration.
+Cryptex Backend is a secure and scalable backend application for a **Cryptocurrency Trading Platform** built with **Spring Boot**. It provides authentication, wallet management, crypto trading, wallet-to-wallet transfers, chatbot support, cryptocurrency news updates, payment integration, two-step authentication, and account verification.
 
 ---
 
@@ -46,6 +46,8 @@ Handles database operations using **Spring Data JPA / Hibernate**.
 - **Validation:** Jakarta Bean Validation  
 - **Build Tool:** Maven  
 - **API Testing:** Postman  
+- **Mail Service:** Spring Mail  
+- **AI Integration:** Gemini API  
 
 ---
 
@@ -55,9 +57,9 @@ Handles database operations using **Spring Data JPA / Hibernate**.
 - User Registration  
 - User Login  
 - JWT Token Authentication  
-- Role-based Authorization
-- Account Verification
-- Two Step Verification
+- Two-Step Authentication (2FA)  
+- Account Verification via Email OTP  
+- Role-based Authorization  
 
 ### Wallet Management
 - Create Wallet  
@@ -122,8 +124,6 @@ Handles database operations using **Spring Data JPA / Hibernate**.
     │   │   │       └── CryptoTradingPlatform.java
     │   │   │
     │   │   └── resources/
-    │   │       ├── static/
-    │   │       ├── templates/
     │   │       └── application.properties
     │
     ├── .gitignore
@@ -150,25 +150,24 @@ Make sure you have installed:
     git clone https://github.com/yourusername/cryptex-backend.git
     cd cryptex-backend
 
-### Configure Database
+### Configure Environment Variables
 
-Create a MySQL database:
+Create a `.env` file or set environment variables:
 
-    CREATE DATABASE cryptex_db;
+    DB_URL=your_database_url
+    DB_USERNAME=your_database_username
+    DB_PASSWORD=your_database_password
 
-Update your `application.properties` file:
+    MAIL_USERNAME=your_email
+    MAIL_PASSWORD=your_email_password
 
-    spring.datasource.url=jdbc:mysql://localhost:3306/cryptex_db
-    spring.datasource.username=your_username
-    spring.datasource.password=your_password
+    STRIPE_API_KEY=your_stripe_key
 
-    spring.jpa.hibernate.ddl-auto=update
-    spring.jpa.show-sql=true
+    RAZORPAY_API_KEY=your_razorpay_key
+    RAZORPAY_API_SECRET=your_razorpay_secret
 
-### Configure JWT Secret
+    COINGECKO_API_KEY=your_coingecko_key
 
-    jwt.secret=your_secret_key
-    jwt.expiration=86400000
 
 ### Run the Application
 
