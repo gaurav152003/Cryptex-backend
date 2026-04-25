@@ -55,7 +55,9 @@ Handles database operations using **Spring Data JPA / Hibernate**.
 - User Registration  
 - User Login  
 - JWT Token Authentication  
-- Role-based Authorization  
+- Role-based Authorization
+- Account Verification
+- Two Step Verification
 
 ### Wallet Management
 - Create Wallet  
